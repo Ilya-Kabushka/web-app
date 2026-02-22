@@ -6,12 +6,13 @@ export const warehouseService = {
 			return await prisma.warehouse.findMany({
 				orderBy: { name: 'asc' },
 				include: {
-					workers: {
-						include: {
-							user: true,
-						},
-					},
 					stocks: true,
+					// workers будет доступен после перегенерации Prisma клиента
+					// workers: {
+					// 	include: {
+					// 		user: true,
+					// 	},
+					// },
 				},
 			})
 		} catch (error) {
@@ -29,11 +30,12 @@ export const warehouseService = {
 							product: true,
 						},
 					},
-					workers: {
-						include: {
-							user: true,
-						},
-					},
+					// workers будет доступен после перегенерации Prisma клиента
+					// workers: {
+					// 	include: {
+					// 		user: true,
+					// 	},
+					// },
 				},
 			})
 		} catch (error) {

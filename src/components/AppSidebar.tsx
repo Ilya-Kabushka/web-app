@@ -18,7 +18,7 @@ import {
 import { MENU_ADMIN } from '@/lib/links'
 import { ChevronDown } from 'lucide-react'
 
-export default function AppSidebar() {
+export default function AppSidebar({ user }: { user: any }) {
 	return (
 		<Sidebar collapsible='icon'>
 			{/* ШАПКА С ПРОФИЛЕМ */}
@@ -33,14 +33,14 @@ export default function AppSidebar() {
 								>
 									{/* Заглушка аватара */}
 									<Avatar className='h-8 w-8 rounded-lg'>
-										<AvatarImage src='https://github.com/shadcn.png' />
+										<AvatarImage src={user.avatar} />
 										<AvatarFallback>ИЛ</AvatarFallback>
 									</Avatar>
 
 									{/* Эти данные скроются при сворачивании автоматически! */}
 									<div className='grid flex-1 text-left text-sm leading-tight'>
-										<span className='truncate font-semibold'>Илья</span>
-										<span className='truncate text-xs'>admin@project.com</span>
+										<span className='truncate font-semibold'>{user.name}</span>
+										<span className='truncate text-xs'>{user.email}</span>
 									</div>
 									<ChevronDown className='ml-auto size-4' />
 								</SidebarMenuButton>
